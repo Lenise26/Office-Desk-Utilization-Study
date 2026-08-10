@@ -1,0 +1,51 @@
+id,layout_id,desk_code,zone,desk_type,nearby_facilities,active
+1,1,WR-01,Window Row,standard,Meeting Rooms|Printer,1
+2,1,WR-02,Window Row,standard,Meeting Rooms|Printer,1
+3,1,WR-03,Window Row,standard,Meeting Rooms|Printer,1
+4,1,WR-04,Window Row,sit-stand,Meeting Rooms|Printer,1
+5,1,WR-05,Window Row,standard,Meeting Rooms|Printer,1
+6,1,WR-06,Window Row,sit-stand,Meeting Rooms|Printer,1
+7,1,CB-01,Central Bench,standard,Kitchen|Printer|Restrooms,1
+8,1,CB-02,Central Bench,standard,Kitchen|Printer|Restrooms,1
+9,1,CB-03,Central Bench,standard,Kitchen|Printer|Restrooms,1
+10,1,CB-04,Central Bench,standard,Kitchen|Printer|Restrooms,1
+11,1,CB-05,Central Bench,standard,Kitchen|Printer|Restrooms,1
+12,1,CB-06,Central Bench,standard,Kitchen|Printer|Restrooms,1
+13,1,QC-01,Quiet Corner,sit-stand,Wellness Room|Restrooms,1
+14,1,QC-02,Quiet Corner,standard,Wellness Room|Restrooms,1
+15,1,QC-03,Quiet Corner,sit-stand,Wellness Room|Restrooms,1
+16,1,QC-04,Quiet Corner,standard,Wellness Room|Restrooms,1
+17,1,CH-01,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+18,1,CH-02,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+19,1,CH-03,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+20,1,CH-04,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+21,1,TC-01,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1
+22,1,TC-02,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1
+23,1,TC-03,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1
+24,1,TC-04,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1
+25,2,WR-01,Window Row,sit-stand,Meeting Rooms|Printer,1
+26,2,WR-02,Window Row,sit-stand,Meeting Rooms|Printer,1
+27,2,WR-03,Window Row,standard,Meeting Rooms|Printer,1
+28,2,WR-04,Window Row,sit-stand,Meeting Rooms|Printer,1
+29,2,WR-05,Window Row,standard,Meeting Rooms|Printer,1
+30,2,WR-06,Window Row,sit-stand,Meeting Rooms|Printer,1
+31,2,CB-01,Central Bench,standard,Kitchen|Printer|Restrooms,1
+32,2,CB-02,Central Bench,standard,Kitchen|Printer|Restrooms,1
+33,2,CB-03,Central Bench,sit-stand,Kitchen|Printer|Restrooms,1
+34,2,CB-04,Central Bench,standard,Kitchen|Printer|Restrooms,1
+35,2,CB-05,Central Bench,accessible,Kitchen|Printer|Restrooms,1
+36,2,QC-01,Quiet Corner,sit-stand,Wellness Room|Restrooms|Lockers,1
+37,2,QC-02,Quiet Corner,sit-stand,Wellness Room|Restrooms|Lockers,1
+38,2,QC-03,Quiet Corner,standard,Wellness Room|Restrooms|Lockers,1
+39,2,QC-04,Quiet Corner,sit-stand,Wellness Room|Restrooms|Lockers,1
+40,2,QC-05,Quiet Corner,accessible,Wellness Room|Restrooms|Lockers,1
+41,2,CH-01,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+42,2,CH-02,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+43,2,CH-03,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+44,2,CH-04,Client Hub,touchdown,Reception|Meeting Rooms|Coffee Station,1
+45,2,TC-01,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1
+46,2,TC-02,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1
+47,2,TC-03,Team Commons,touchdown,Kitchen|Meeting Rooms|Whiteboards,1
+48,2,TC-04,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1
+49,2,TC-05,Team Commons,touchdown,Kitchen|Meeting Rooms|Whiteboards,1
+50,2,TC-06,Team Commons,collaboration,Kitchen|Meeting Rooms|Whiteboards,1

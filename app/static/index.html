@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anonymous shared-workspace utilization analytics for small businesses.">
+  <title>Office Desk Utilization Study</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to dashboard</a>
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-mark" aria-hidden="true">OD</div>
+      <div>
+        <p class="eyebrow">Northstar Creative Services LLC · Columbus, Ohio</p>
+        <h1>Office Desk Utilization Study</h1>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span class="privacy-chip" title="No employee identities are collected">Anonymous by design</span>
+      <button class="button button-secondary" id="exportButton" type="button">Export CSV</button>
+      <button class="button button-primary" id="openObservation" type="button">Record observation</button>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="hero-panel" aria-labelledby="overview-heading">
+      <div>
+        <p class="eyebrow">Workspace performance overview</p>
+        <h2 id="overview-heading">See where space works — without tracking people.</h2>
+        <p class="hero-copy">Compare furniture configurations, locate underused zones, and understand peak demand from anonymous desk observations.</p>
+      </div>
+      <div class="filter-panel" aria-label="Dashboard filters">
+        <label>
+          Layout
+          <select id="layoutSelect"></select>
+        </label>
+        <label>
+          Time period
+          <select id="periodSelect">
+            <option value="all">All observed hours</option>
+            <option value="morning">Morning · 8–11</option>
+            <option value="midday">Midday · 11–2</option>
+            <option value="afternoon">Afternoon · 2–5</option>
+            <option value="late">Late day · 5–7</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="metric-grid" aria-label="Key metrics">
+      <article class="metric-card">
+        <span>Overall utilization</span>
+        <strong id="overallRate">—</strong>
+        <small>occupied observations</small>
+      </article>
+      <article class="metric-card">
+        <span>Observation count</span>
+        <strong id="observationCount">—</strong>
+        <small>anonymous desk checks</small>
+      </article>
+      <article class="metric-card">
+        <span>Average occupied duration</span>
+        <strong id="averageDuration">—</strong>
+        <small>approximate minutes</small>
+      </article>
+      <article class="metric-card">
+        <span>Lowest-use zone</span>
+        <strong id="lowestZone">—</strong>
+        <small id="lowestZoneDetail">utilization</small>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel panel-wide">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Zone performance</p>
+            <h3>Utilization by zone</h3>
+          </div>
+          <span class="legend-note">Based on occupied ÷ total observations</span>
+        </div>
+        <div id="zoneBars" class="bar-list" aria-live="polite"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Demand</p>
+            <h3>Peak-use periods</h3>
+          </div>
+        </div>
+        <div id="peakPeriods" class="rank-list"></div>
+      </article>
+
+      <article class="panel panel-wide">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Heatmap</p>
+            <h3>Zone × time period</h3>
+          </div>
+          <span class="legend-note">Darker cells indicate higher utilization</span>
+        </div>
+        <div class="heatmap-wrap">
+          <div id="heatmap" class="heatmap" role="table" aria-label="Utilization heatmap"></div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Opportunity</p>
+            <h3>Underused areas</h3>
+          </div>
+        </div>
+        <div id="unusedAreas" class="insight-list"></div>
+      </article>
+    </section>
+
+    <section class="panel comparison-panel" aria-labelledby="comparison-title">
+      <div class="panel-heading comparison-heading">
+        <div>
+          <p class="eyebrow">Layout study</p>
+          <h3 id="comparison-title">Before vs. after furniture change</h3>
+        </div>
+        <div class="comparison-selects">
+          <label>Before <select id="beforeLayout"></select></label>
+          <label>After <select id="afterLayout"></select></label>
+        </div>
+      </div>
+      <div class="comparison-summary">
+        <div>
+          <span>Overall change</span>
+          <strong id="overallChange">—</strong>
+        </div>
+        <p id="comparisonNarrative">Loading comparison…</p>
+      </div>
+      <div id="comparisonRows" class="comparison-rows"></div>
+    </section>
+
+    <section class="privacy-banner" aria-labelledby="privacy-title">
+      <div class="privacy-icon" aria-hidden="true">✓</div>
+      <div>
+        <h3 id="privacy-title">Observe workspaces, not employees</h3>
+        <p>This application contains no employee identity fields. Keep observations at desk/zone level and avoid free-text notes that could introduce personal information.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="observationDialog" class="observation-dialog">
+    <form method="dialog" id="observationForm">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">Anonymous field entry</p>
+          <h2>Record desk observation</h2>
+        </div>
+        <button class="icon-button" value="cancel" aria-label="Close dialog" type="button" id="closeObservation">×</button>
+      </div>
+      <p class="form-note">No person, badge, device, or employee identifier is recorded.</p>
+      <div class="form-grid">
+        <label class="span-2">Desk
+          <select id="deskSelect" required></select>
+        </label>
+        <label>Date & time
+          <input id="observedAt" type="datetime-local" required>
+        </label>
+        <fieldset>
+          <legend>Status</legend>
+          <div class="segmented">
+            <label><input type="radio" name="occupied" value="true" checked> Occupied</label>
+            <label><input type="radio" name="occupied" value="false"> Unoccupied</label>
+          </div>
+        </fieldset>
+        <label class="span-2">Approximate duration when occupied
+          <select id="durationSelect">
+            <option value="">Unknown / not observed</option>
+            <option value="15">About 15 minutes</option>
+            <option value="30">About 30 minutes</option>
+            <option value="45">About 45 minutes</option>
+            <option value="60">About 1 hour</option>
+            <option value="90">About 1.5 hours</option>
+            <option value="120">About 2 hours</option>
+            <option value="180">About 3 hours</option>
+          </select>
+        </label>
+      </div>
+      <div id="deskContext" class="desk-context"></div>
+      <div class="dialog-actions">
+        <button class="button button-secondary" type="button" id="cancelObservation">Cancel</button>
+        <button class="button button-primary" type="submit">Save observation</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Repository description:
+Privacy-first desk and workspace utilization analytics for small businesses, with anonymous observations, responsive heatmaps, peak-use insights, underused-area detection, and before/after furniture-layout comparisons.
+
+Suggested topics:
+workspace-analytics, desk-utilization, fastapi, sqlite, small-business, privacy-by-design, facilities-management, responsive-dashboard

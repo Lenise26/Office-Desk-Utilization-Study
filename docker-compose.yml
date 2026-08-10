@@ -1,0 +1,15 @@
+services:
+  office-desk-utilization:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: production
+      DATABASE_PATH: /app/data/office_desk_utilization.sqlite3
+      AUTO_SEED: "true"
+    volumes:
+      - office_desk_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  office_desk_data:
